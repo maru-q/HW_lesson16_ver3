@@ -1,10 +1,6 @@
 import os
 import json
-from flask import current_app as app
-from flask_sqlalchemy import SQLAlchemy
-
-from run import Role
-
+from app import db, models
 
 def load_data(file_path):
     """
@@ -20,14 +16,11 @@ def load_data(file_path):
     return data
 
 
-def add_data(file_path):
-    data_list = load_data(file_path)
-    db = SQLAlchemy(app)
-    for data in data_list:
-        new_role = Role(**data)
+def add_data_roles(file_path):
+    role_list = load_data(file_path)
+
+    for data in role_list:
+        new_role = models.Role(**data)
         db.session.add(new_role)
 
     db.session.commit()
-
-
-
