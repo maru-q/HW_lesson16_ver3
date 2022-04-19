@@ -5,7 +5,7 @@
     "last_name": "Pauloh",
     "age": 31,
     "email": "elliot16@mymail.com",
-    "role_id_id": "customer",
+    "role_id": 2,
     "phone": "6197021684"
   },
   {
